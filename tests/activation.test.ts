@@ -11,7 +11,10 @@ import {
 } from "@denote/plugin-sdk";
 import plugin from "../src/index";
 import emojiJson from "../src/emoji.json";
-import packageJson from "../package.json";
+import { archivedPackageJson } from "@denote/plugin-sdk/tools/package-metadata";
+import repositoryPackageJson from "../package.json";
+
+const packageJson = JSON.parse(archivedPackageJson(repositoryPackageJson, "0.1.0"));
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
